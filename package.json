@@ -1,0 +1,18 @@
+{
+  "name": "lambda-demo-deploy-opsworks-provider",
+  "version": "1.0.0",
+  "description": "deploy opsworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lulichn/lambda-demo-deploy-opsworks-provider.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
+
