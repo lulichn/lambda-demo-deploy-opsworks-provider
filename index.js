@@ -4,7 +4,6 @@ console.log('Loading function');
 const aws = require('aws-sdk');
 
 const getOpsWorks = () => {
-    aws.config.update({region: 'ap-northeast-1'});
     return new aws.OpsWorks();
 }
 
