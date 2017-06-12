@@ -7,15 +7,17 @@ jobs:
     working_directory: /app
     docker:
       - image: node:6.10-alpine
+    environment:
+      - GHR_VERSION: "v0.5.4"
     steps:
       - run:
           name: install-ependencies
           command: |
-            apk add --no-cache zip curl
-            curl -OL https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
-            unzip ghr_v0.5.4_linux_amd64.zip
+            apk add --no-cache zip curl git
+            curl -OL https://github.com/tcnksm/ghr/releases/download/$GHR_VERSION/ghr_"$GHR_VERSION"_linux_amd64.zip
+            unzip ghr_"$GHR_VERSION"_linux_amd64.zip
             mv ghr /usr/bin/
-            rm -f ghr_v0.5.4_linux_amd64.zip
+            rm -f "ghr_"$GHR_VERSION"_linux_amd64.zip"
       - checkout
       - run:
           name: update-npm
