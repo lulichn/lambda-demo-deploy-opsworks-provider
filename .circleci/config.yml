@@ -9,13 +9,21 @@ jobs:
       - image: node:6.10-alpine
     steps:
       - run:
-          name: install-dependencies
-          command: 'apk add --no-cache zip'
+          name: install-ependencies
+          command: |
+            apk add --no-cache zip curl
+            curl -OL https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+            unzip ghr_v0.5.4_linux_amd64.zip
+            mv ghr /usr/bin/
+            rm -f ghr_v0.5.4_linux_amd64.zip
       - checkout
       - run:
           name: update-npm
-          command: 'npm install'
+          command: npm install
       - run:
           name: package
-          command: 'zip -r deploy-function.zip index.js src node_modules'
+          command: zip -r deploy-function.zip index.js src node_modules
+      - run:
+          name: release
+          command: ghr v0.0.1 deploy-function.zip
 
