@@ -1,0 +1,21 @@
+
+---
+
+version: 2
+jobs:
+  build:
+    working_directory: /app
+    docker:
+      - image: node:6.10-alpine
+    steps:
+      - run:
+          name: install-dependencies
+          command: 'apk add --no-cache zip'
+      - checkout
+      - run:
+          name: update-npm
+          command: 'npm install'
+      - run:
+          name: package
+          command: 'zip -r deploy-function.zip index.js src node_modules'
+
