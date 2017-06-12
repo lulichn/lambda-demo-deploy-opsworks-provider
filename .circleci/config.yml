@@ -27,5 +27,5 @@ jobs:
           command: zip -r deploy-function.zip index.js src node_modules
       - run:
           name: release
-          command: ghr v0.0.1 deploy-function.zip
+          command: ghr -u lulichn -r lambda-demo-deploy-opsworks-provider -replace v0.0.1 deploy-function.zip
 
