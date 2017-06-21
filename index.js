@@ -4,7 +4,7 @@ console.log('Loading function');
 const aws = require('aws-sdk');
 
 const getOpsWorks = () => {
-    return new aws.OpsWorks();
+    return new aws.OpsWorks({'region': 'us-east-1'});
 }
 
 const getPipeline = () => {
