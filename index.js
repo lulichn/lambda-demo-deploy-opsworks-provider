@@ -8,7 +8,6 @@ const getOpsWorks = () => {
 }
 
 const getPipeline = () => {
-    aws.config.update({region: 'us-east-1'});
     return new aws.CodePipeline();
 }
 
